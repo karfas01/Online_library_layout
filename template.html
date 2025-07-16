@@ -14,11 +14,11 @@
     {% for book in book_pair %}
     <div class="col-md-6 mb-4">
       <div class="card h-100 flex-row">
-        <img src="{{ book.img_src }}" class="card-img-left" alt="Обложка книги {{ book.title }} автора {{ book.author }}" style="width: 160px; object-fit: cover;">
+        <img src="../{{ book.img_src }}" class="card-img-left" alt="Обложка книги {{ book.title }} автора {{ book.author }}" style="width: 160px; object-fit: cover;">
         <div class="card-body">
           <h5 class="card-title">{{ book.title }}</h5>
           <p class="card-text"><strong>Автор:</strong> {{ book.author }}</p>
-          <a href="{{ book.book_path }}" class="btn btn-primary" target="_blank" rel="noopener">Читать</a>
+          <a href="../{{ book.book_path }}">Читать</a>
         </div>
       </div>
     </div>
