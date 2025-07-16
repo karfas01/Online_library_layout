@@ -9,6 +9,35 @@
   <body>
     <div class="container my-4">
   <h1 class="mb-4">Онлайн-библиотека</h1>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item{% if current_page == 1 %} disabled{% endif %}">
+        {% if current_page == 1 %}
+          <span class="page-link" aria-disabled="true" tabindex="-1">Назад</span>
+        {% else %}
+          <a class="page-link" href="index{{ current_page - 1 }}.html">Назад</a>
+        {% endif %}
+      </li>
+      {% for number in range(1, total_pages + 1) %}
+      <li class="page-item{% if number == current_page %} active{% endif %}">
+        {% if number == current_page %}
+          <span class="page-link" aria-current="page">{{ number }}</span>
+        {% else %}
+          <a class="page-link" href="index{{ number }}.html">{{ number }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+      <li class="page-item{% if current_page == total_pages %} disabled{% endif %}">
+        {% if current_page == total_pages %}
+          <span class="page-link" aria-disabled="true" tabindex="-1">Вперёд</span>
+        {% else %}
+          <a class="page-link" href="index{{ current_page + 1 }}.html">Вперёд</a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+
   {% for book_pair in chunked_books %}
   <div class="row">
     {% for book in book_pair %}
